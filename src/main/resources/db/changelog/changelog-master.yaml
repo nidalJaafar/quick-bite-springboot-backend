@@ -1,0 +1,6 @@
+databaseChangeLog:
+  - changeSet:
+      id: build-database
+      author: nidal
+  - includeAll:
+      path: /db/changelog/evolution

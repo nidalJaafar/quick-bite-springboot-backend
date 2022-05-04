@@ -1,0 +1,441 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1651690896330-1
+      author: nidal (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: PRIMARY
+                  name: id
+                  type: INT(10)
+              - column:
+                  constraints:
+                    nullable: false
+                    unique: true
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                    unique: true
+                  name: symbol
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: rate
+                  type: DOUBLE(22)
+            tableName: currencies
+  - changeSet:
+      id: 1651690896330-2
+      author: nidal (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: PRIMARY
+                  name: id
+                  type: INT(10)
+              - column:
+                  constraints:
+                    nullable: false
+                    unique: true
+                  name: question
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                    unique: true
+                  name: answer
+                  type: VARCHAR(255)
+            tableName: faqs
+  - changeSet:
+      id: 1651690896330-3
+      author: nidal (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: PRIMARY
+                  name: id
+                  type: INT(10)
+              - column:
+                  constraints:
+                    nullable: false
+                    unique: true
+                  name: path
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: item_id
+                  type: INT(10)
+            tableName: images
+  - changeSet:
+      id: 1651690896330-4
+      author: nidal (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: PRIMARY
+                  name: id
+                  type: INT(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: INT(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  defaultValueNumeric: !!float '0'
+                  name: rating
+                  type: INT(10)
+              - column:
+                  name: details
+                  type: CLOB(65535)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: item_id
+                  type: INT(10)
+            tableName: item_feedbacks
+  - changeSet:
+      id: 1651690896330-5
+      author: nidal (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: PRIMARY
+                  name: id
+                  type: INT(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: details
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: type
+                  type: VARCHAR(25)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: base_price
+                  type: DOUBLE(22)
+              - column:
+                  constraints:
+                    nullable: false
+                  defaultValueNumeric: !!float '0'
+                  name: sale
+                  type: INT(10)
+              - column:
+                  name: average_rating
+                  type: DOUBLE(22)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: menu_id
+                  type: INT(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  defaultValueBoolean: false
+                  name: is_trending
+                  type: BOOLEAN(1)
+            tableName: items
+  - changeSet:
+      id: 1651690896330-6
+      author: nidal (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: PRIMARY
+                  name: id
+                  type: INT(10)
+              - column:
+                  constraints:
+                    nullable: false
+                    unique: true
+                  name: name
+                  type: VARCHAR(255)
+            tableName: menus
+  - changeSet:
+      id: 1651690896330-7
+      author: nidal (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: PRIMARY
+                  name: id
+                  type: INT(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  defaultValue: pending
+                  name: status
+                  type: VARCHAR(25)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: item_id
+                  type: INT(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: INT(10)
+            tableName: orders
+  - changeSet:
+      id: 1651690896330-8
+      author: nidal (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: PRIMARY
+                  name: id
+                  type: INT(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: first_name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                    unique: true
+                  name: email
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: password
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  defaultValue: client
+                  name: role
+                  type: VARCHAR(25)
+            tableName: users
+  - changeSet:
+      id: 1651690896330-9
+      author: nidal (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: PRIMARY
+                  name: id
+                  type: INT(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: INT(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  defaultValueNumeric: !!float '0'
+                  name: rating
+                  type: INT(10)
+              - column:
+                  name: details
+                  type: CLOB(65535)
+            tableName: visit_feedbacks
+  - changeSet:
+      id: 1651690896330-17
+      author: nidal (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: item_id
+            baseTableName: images
+            constraintName: fk_images_items
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            referencedColumnNames: id
+            referencedTableName: items
+        - createIndex:
+            columns:
+              - column:
+                  name: item_id
+            indexName: fk_images_items
+            tableName: images
+  - changeSet:
+      id: 1651690896330-18
+      author: nidal (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: item_id
+            baseTableName: item_feedbacks
+            constraintName: fk_item_feedbacks_items
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            referencedColumnNames: id
+            referencedTableName: items
+        - createIndex:
+            columns:
+              - column:
+                  name: item_id
+            indexName: fk_item_feedbacks_items
+            tableName: item_feedbacks
+  - changeSet:
+      id: 1651690896330-19
+      author: nidal (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: item_feedbacks
+            constraintName: fk_item_feedbacks_users
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            referencedColumnNames: id
+            referencedTableName: users
+        - createIndex:
+            columns:
+              - column:
+                  name: user_id
+            indexName: fk_item_feedbacks_users
+            tableName: item_feedbacks
+  - changeSet:
+      id: 1651690896330-20
+      author: nidal (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: menu_id
+            baseTableName: items
+            constraintName: fk_items_menus
+            onDelete: RESTRICT
+            onUpdate: CASCADE
+            referencedColumnNames: id
+            referencedTableName: menus
+        - createIndex:
+            columns:
+              - column:
+                  name: menu_id
+            indexName: fk_items_menus
+            tableName: items
+  - changeSet:
+      id: 1651690896330-21
+      author: nidal (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: item_id
+            baseTableName: orders
+            constraintName: fk_orders_items
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            referencedColumnNames: id
+            referencedTableName: items
+        - createIndex:
+            columns:
+              - column:
+                  name: item_id
+            indexName: fk_orders_items
+            tableName: orders
+  - changeSet:
+      id: 1651690896330-22
+      author: nidal (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: orders
+            constraintName: fk_orders_users
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            referencedColumnNames: id
+            referencedTableName: users
+        - createIndex:
+            columns:
+              - column:
+                  name: user_id
+            indexName: fk_orders_users
+            tableName: orders
+  - changeSet:
+      id: 1651690896330-23
+      author: nidal (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: visit_feedbacks
+            constraintName: fk_visit_feedbacks_users
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            referencedColumnNames: id
+            referencedTableName: users
+        - createIndex:
+            columns:
+              - column:
+                  name: user_id
+            indexName: fk_visit_feedbacks_users
+            tableName: visit_feedbacks
+
