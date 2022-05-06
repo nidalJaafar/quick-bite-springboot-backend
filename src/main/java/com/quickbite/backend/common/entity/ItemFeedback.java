@@ -15,13 +15,14 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.ToString.Exclude;
+import lombok.experimental.Accessors;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
 @ToString
 @Entity
 @Table(name = "item_feedbacks")
+@Accessors(chain = true)
 public class ItemFeedback {
 
   @Id

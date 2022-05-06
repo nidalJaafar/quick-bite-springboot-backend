@@ -14,13 +14,14 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.ToString.Exclude;
+import lombok.experimental.Accessors;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
 @ToString
 @Entity
 @Table(name = "menus")
+@Accessors(chain = true)
 public class Menu {
 
   @Id

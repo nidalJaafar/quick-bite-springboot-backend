@@ -2,6 +2,7 @@ package com.quickbite.backend.module.currency.controller;
 
 import com.quickbite.backend.common.entity.Currency;
 import com.quickbite.backend.common.response.CollectionResponse;
+import com.quickbite.backend.module.currency.dto.CurrencyDto;
 import com.quickbite.backend.module.currency.response.CurrencyResponse;
 import com.quickbite.backend.module.currency.service.CurrencyService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ public class UserController {
   private final CurrencyService service;
 
   @GetMapping("/currency")
-  public ResponseEntity<CollectionResponse<Currency>> getCurrencies() {
+  public ResponseEntity<CollectionResponse<CurrencyDto>> getCurrencies() {
     return ResponseEntity.ok(service.getEntities());
   }
 

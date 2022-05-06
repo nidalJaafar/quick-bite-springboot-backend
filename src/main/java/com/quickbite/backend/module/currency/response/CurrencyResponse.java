@@ -7,5 +7,5 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 public class CurrencyResponse {
-  private CurrencyDto currencyDto;
+  private CurrencyDto currency;
 }

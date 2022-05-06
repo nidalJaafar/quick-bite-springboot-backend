@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.Getter;
 
 @AllArgsConstructor
-@Data
+@Getter
 public class CurrencyDto implements Serializable {
 
   private final Integer id;
