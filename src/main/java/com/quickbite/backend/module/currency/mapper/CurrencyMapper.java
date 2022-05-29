@@ -2,6 +2,7 @@ package com.quickbite.backend.module.currency.mapper;
 
 import com.quickbite.backend.module.currency.dto.CurrencyDto;
 import com.quickbite.backend.common.entity.Currency;
+import com.quickbite.backend.module.currency.request.CurrencyRequest;
 import java.util.List;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
@@ -17,6 +18,8 @@ public interface CurrencyMapper {
   CurrencyDto currencyToCurrencyDto(Currency currency);
 
   List<CurrencyDto> currencyListToCurrencyDtoList(List<Currency> currencyList);
+
+  Currency currencyRequestToCurrency(CurrencyRequest currencyRequest);
 
   @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
   void updateCurrencyFromCurrencyDto(

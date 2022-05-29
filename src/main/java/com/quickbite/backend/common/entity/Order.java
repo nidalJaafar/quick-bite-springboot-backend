@@ -10,17 +10,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.ToString.Exclude;
+import lombok.experimental.Accessors;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
 @ToString
 @Entity
 @Table(name = "orders")
+@Accessors(chain = true)
 public class Order {
 
   @Id

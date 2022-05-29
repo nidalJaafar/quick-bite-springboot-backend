@@ -2,6 +2,7 @@ package com.quickbite.backend.module.menu.mapper;
 
 import com.quickbite.backend.common.entity.Menu;
 import com.quickbite.backend.module.menu.dto.MenuDto;
+import com.quickbite.backend.module.menu.request.MenuRequest;
 import java.util.List;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.BeanMapping;
@@ -18,6 +19,8 @@ public interface MenuMapper {
   MenuDto menuToMenuDto(Menu menu);
 
   List<MenuDto> menuListToMenuDtoList(List<Menu> menuList);
+
+  Menu menuRequestToMenu(MenuRequest menuRequest);
 
   @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
   void updateMenuFromMenuDto(

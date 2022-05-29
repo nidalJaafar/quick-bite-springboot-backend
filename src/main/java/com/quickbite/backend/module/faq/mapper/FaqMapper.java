@@ -2,6 +2,7 @@ package com.quickbite.backend.module.faq.mapper;
 
 import com.quickbite.backend.common.entity.Faq;
 import com.quickbite.backend.module.faq.dto.FaqDto;
+import com.quickbite.backend.module.faq.request.FaqRequest;
 import java.util.List;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
@@ -17,6 +18,8 @@ public interface FaqMapper {
   FaqDto faqToFaqDto(Faq faq);
 
   List<FaqDto> faqListToFaqDtoList(List<Faq> faqList);
+
+  Faq faqRequestToFaq(FaqRequest faqRequest);
 
   @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
   void updateFaqFromFaqDto(
