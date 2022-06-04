@@ -7,4 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FaqRepository extends JpaRepository<Faq, Integer> {
 
+  boolean existsByAnswer(String answer);
+
+  boolean existsByQuestion(String question);
 }

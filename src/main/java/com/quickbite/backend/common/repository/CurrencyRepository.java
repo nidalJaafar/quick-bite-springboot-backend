@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CurrencyRepository extends JpaRepository<Currency, Integer> {
-
+  boolean existsByName(String name);
+  boolean existsBySymbol(String symbol);
 }

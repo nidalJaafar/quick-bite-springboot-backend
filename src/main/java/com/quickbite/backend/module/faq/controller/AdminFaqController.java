@@ -4,8 +4,11 @@ import com.quickbite.backend.common.response.CollectionResponse;
 import com.quickbite.backend.module.faq.dto.FaqDto;
 import com.quickbite.backend.module.faq.request.FaqRequest;
 import com.quickbite.backend.module.faq.service.AdminFaqService;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +20,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@Validated
+@PreAuthorize(value = "hasRole('ADMIN')")
 @RequestMapping("/api/v1/admin")
 @RequiredArgsConstructor
 public class AdminFaqController {
@@ -37,13 +42,13 @@ public class AdminFaqController {
 
   @PostMapping("/faq")
   @ResponseStatus(HttpStatus.CREATED)
-  public FaqDto createFaq(@RequestBody FaqRequest request) {
+  public FaqDto createFaq(@Valid @RequestBody FaqRequest request) {
     return service.post(request);
   }
 
   @PutMapping("/faq/{id}")
   @ResponseStatus(HttpStatus.CREATED)
-  public FaqDto updateFaq(@RequestBody FaqRequest request,
+  public FaqDto updateFaq(@Valid @RequestBody FaqRequest request,
       @PathVariable Integer id) {
     return service.put(request, id);
   }

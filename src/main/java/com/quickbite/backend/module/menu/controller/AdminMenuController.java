@@ -4,8 +4,11 @@ import com.quickbite.backend.common.response.CollectionResponse;
 import com.quickbite.backend.module.menu.dto.MenuDto;
 import com.quickbite.backend.module.menu.request.MenuRequest;
 import com.quickbite.backend.module.menu.service.AdminMenuService;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
+@Validated
+@PreAuthorize(value = "hasRole('ADMIN')")
 @RequestMapping("/api/v1/admin")
 public class AdminMenuController {
 
@@ -37,13 +42,13 @@ public class AdminMenuController {
 
   @PostMapping("/menu")
   @ResponseStatus(HttpStatus.CREATED)
-  public MenuDto createMenu(@RequestBody MenuRequest request) {
+  public MenuDto createMenu(@Valid @RequestBody MenuRequest request) {
     return service.post(request);
   }
 
   @PutMapping("/menu/{id}")
   @ResponseStatus(HttpStatus.CREATED)
-  public MenuDto updateMenu(@RequestBody MenuRequest request, @PathVariable Integer id) {
+  public MenuDto updateMenu(@Valid @RequestBody MenuRequest request, @PathVariable Integer id) {
     return service.put(request, id);
   }
 
